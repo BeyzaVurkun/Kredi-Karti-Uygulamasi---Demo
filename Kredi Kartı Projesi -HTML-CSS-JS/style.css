@@ -1,0 +1,166 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    outline: none;
+    text-decoration: none;
+    text-transform: uppercase;
+    border:none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container{
+    min-height: 100vh;
+    position: relative;
+    background: linear-gradient(0deg ,#00adb5,#eee);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    padding-bottom:60px;
+}
+
+/* Kart container */
+.container .card-container{
+    position: absolute;
+    width: 400px; 
+    height: 250px; 
+    top: 20px;        /* ekran üstünden hafif boşluk */
+    left: 50%; 
+    transform: translateX(-50%) perspective(1000px) rotateY(0deg);
+    z-index: 20;
+}
+
+/* Front ve Back kart ayarları */
+.container .card-container .front,
+.container .card-container .back{
+    position: absolute;
+    top: 0;            /* container içinde sıfır */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    border-radius: 5px;
+    backface-visibility: hidden;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+    transition: 400ms ease-out;
+}
+
+/* Front kart */
+.container .card-container .front{
+    background:linear-gradient(45deg,#928888,#393e46);
+    transform: perspective(1000px) rotateY(0deg);
+    z-index: 20;
+}
+
+/* Back kart */
+.container .card-container .back{
+    background: linear-gradient(45deg,#928888,#393e46);
+    transform: perspective(1000px) rotateY(180deg);
+    text-align: right;
+
+}
+
+/* Kart içi resim ve CVV */
+.front .image{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10px;
+    mix-blend-mode: multiply; 
+}
+.front .image img, .back .box img{
+    height: 50px;
+    mix-blend-mode: multiply; 
+}
+
+.container .card-container .front .card-number-box{
+    color:white;
+    padding:30px 0px;
+    font-size: 20px;
+}
+
+.container .card-container .front .flexbox{
+    display: flex;
+}
+.container .card-container .front .flexbox .box{
+    font-size:15px;
+    color:#fff;
+}
+.container .card-container .front .flexbox .box:nth-child(1){
+   margin-right: auto;
+}
+
+/* Back kart detayları */
+.container .card-container .back .stripe{
+    background-color: black;
+    width:100%;
+    margin:10px 0px;
+    height: 50px;
+}
+.container .card-container .back .box{
+    padding: 0px 20px;
+}
+.container .card-container .back .box span{
+    color:white;
+    font-size:15px;
+}
+.container .card-container .back .box .cvv-box{
+    height: 50px;
+    padding: 10px;
+    margin-top: 5px;
+    background-color: white;
+    border-radius:5px;
+    width: 100%;
+}
+
+/* Form ayarları */
+.container form{
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+    padding-top: 170px;
+    width:600px;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.3);
+    margin-top:100px;
+    z-index:5;
+}
+.container form .inputbox{
+    margin-top:20px;
+}
+.container form .inputbox span{
+    display:block;
+    color:#999;
+    padding-bottom:5px;
+}
+.container form .inputbox input,
+.container form .inputbox select{
+    width:100%;
+    border:1px solid rgba(0,0,0,0.3);
+    padding: 10px;
+    border-radius: 10px;
+    color:#333;
+}
+.container form .flexbox{
+    display: flex;
+    gap:25px;
+}
+.container form .flexbox .inputbox{
+    flex:1 1 150px;
+}
+.container form .submit-btn{
+    width:100%;
+    background:linear-gradient(45deg,#222831,#393e46);
+    margin-top:20px;
+    padding: 10px;
+    font-size:20px;
+    color:white;
+    border-radius: 10px;
+    cursor:pointer;
+    transition: 700ms;
+}
+.container form .submit-btn:hover{
+    opacity: 0.8;
+    letter-spacing: 2px;
+}
+
